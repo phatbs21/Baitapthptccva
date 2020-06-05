@@ -1,0 +1,47 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cpp.exe build active file",
+            "command": "C:\\Mingw-64\\mingw64\\bin\\cpp.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:\\Mingw-64\\mingw64\\bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "gcc.exe build active file",
+            "command": "C:\\Mingw-64\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:\\Mingw-64\\mingw64\\bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "C:/Mingw-64/mingw64/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:/Mingw-64/mingw64/bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
