@@ -1,0 +1,127 @@
+1)
+Program tinh_tong;
+uses crt;
+const : N:=100;
+Var i,tong:integer;
+begin
+clrscr;
+tong:=0; i:=1;
+while i<=N do
+begin
+tong: = tong + i;
+i:=i+1;
+end;
+Writeln('tong cua 100 so tu nhien dau tien la ',tong);
+Readln ;
+End.
+2)
+Var i , n : integer ;
+S : real;
+Begin
+write ( 'n =') ; read (n) ;
+S:= 0;
+For i:=1 to n do S : = S + 1/i;
+Writeln (S);
+Readln;
+End.
+3)
+Program tong_so_chan;
+Uses crt;
+Var
+S,N,I:Integer;
+Begin
+Clrscr;
+N:=100;
+S:=0;
+For I:=50 to N do
+If (I mod 2=0) then
+S:=S+I;
+Writeln('Tong cac so chan la ',S);
+Readln;
+End.
+
+Program tong_so_le;
+Uses crt;
+Var
+S,N,I:Integer;
+Begin
+Clrscr;
+N:=100;
+S:=0;
+For I:=50 to N do
+If (I mod 2=1) then
+S:=S+I;
+Writeln('Tong cac so le la ',S);
+Readln;
+End.
+4)
+program tongcacso;
+uses crt;
+var i, n:integer;
+s: longint;
+a: array[1..100] of integer;
+begin
+clrscr;
+write ( ' hay nhap so phan tu cua day so, n= '); readln(n);
+writeln( ' nhap cac phan tu cua day so: ');
+for i := 1 to n do
+begin
+write ( ' a[ ' , i , ' ] = ' ); readln(a[ i] );
+end;
+for i := 1 to n do s := s + i;
+writeln ( ' tong cac so trong mang: ' , s);
+readln
+end.
+5)
+program tongcacsole;
+uses crt;
+var i, n:integer;
+s: longint;
+a: array[1..100] of integer;
+begin
+clrscr;
+write ( ' hay nhap so phan tu cua day so, n= '); readln(n);
+writeln( ' nhap cac phan tu cua day so: ');
+for i := 1 to n do
+begin
+write ( ' a[ ' , i , ' ] = ' ); readln(a[ i] );
+end;
+for i := 1 to n do
+if a[i] mod 2 < > 0 then s := s + i;
+writeln ( ' tong cac so le: ' , s);
+readln
+end.
+
+program tongcacsochan;
+uses crt;
+var i, n:integer;
+s: longint;
+a: array[1..100] of integer;
+begin
+clrscr;
+write ( ' hay nhap so phan tu cua day so, n= '); readln(n);
+writeln( ' nhap cac phan tu cua day so: ');
+for i := 1 to n do
+begin
+write ( ' a[ ' , i , ' ] = ' ); readln(a[ i] );
+end;
+for i := 1 to n do
+if a[i] mod 2 = 0 then s := s + i;
+writeln ( ' tong cac so chan: ' , s);
+readln
+end.
+6)
+Program Tinh_tong;
+Uses Crt;
+Var i, S: Integer;
+Begin
+Clrscr;
+S:=0; i:=1;
+While S>=100 do
+Begin
+S:=S+i;
+i:=i+1;
+End;
+Writeln('Ket qua',i-1);
+Readln;
+End.
