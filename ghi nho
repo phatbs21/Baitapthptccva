@@ -1,0 +1,20 @@
+Độ phức tạp = O(#số lần gọi đệ quy x Độ phúc tạp 1 hàm đệ quy)
+bài toán người du lịch
+- không mất tính tổng quát giả sử chu trình bắt đầu và kết thúc tại đinh 0
+-gọi tsp(i,S) cách sử dụng ít chi phí nhất để đi qua toàn bộ các đỉnh và quay trở lại đỉnh 0 nếu như hiện tại hành trình đang ở tại đỉnh i và người du lịch đã thăm tất cả các đỉnh trong tập số
+-Neo đệ qui tsp (i, tập mọi đỉnh) = ci0
+-công thức đệ qui tsp(i,S) = min j!= s (c[i,j] + tsp (j,S giao với {j}))
+-Cho một lượng nhỏ (n<= 30 ) phần tử 
+-gán nhãn bởi các số nguyên 0,1,....,n-1
+-biểu diễn tập hợp các phần tử này bởi một biến nguyên 32 bit
+-phần tử thứ i trong tập được biểu diễn bở số nguyên x nếu bit thứ i của x là 1 
+-ví dụ :
+*cho tập hợp {0,3,4}
+*int x = (1<<0) | (1<<3) | (1<<4);
+- tập rỗng: 0
+- tập có 1 phần tử: 1<<i 
+- tập vũ trụ (nghĩa là tất cả các phần tử): (1<<n)-1
+- hợp 2 tập: x|y
+- Giao hai tập: x&y
+- phần bù một tập ~x& ((1<<n)-1)
+độ phức tạp (n^2*2^n) 

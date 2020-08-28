@@ -27,6 +27,7 @@ void spiralFill(int m, int n, int a[][MAX])
             for (int i = m - 1; i >= k; --i)
                 a[i][l] = q[val++];
             l++;
+            
         }
     }
 }

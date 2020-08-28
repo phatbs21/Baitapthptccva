@@ -1,6 +1,5 @@
-#include <bits\stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 #define bignum string
 bignum cong(bignum s1, bignum s2)
 {
@@ -62,3 +61,53 @@ bignum nhan(bignum s1, bignum s2)
     }
     return k;
 }
+string inra(int n)
+{
+    bignum s = "1";
+    for (int i = 1; i <= n; i++)
+    {
+        s = nhan1(s, 2);
+    }
+    return s;
+}
+string kt(int n)
+{
+    int c = 0;
+    int a = 0, dem = 0, b = 0;
+    string s1, s2 = "";
+    while (n > 0)
+    {
+        dem++;
+        s1 = to_string(c);
+        if (n % 2 == 1)
+        {
+            if (dem % 2)
+                a += stoi(s1);
+            else
+                b += stoi(s1);
+        }
+        n = n / 2;
+        c++;
+    }
+    cout<<"*"<<a<<""<<b<<"*";
+    if (a > b)
+        return cong(inra(a), nhan1(inra(b), 1));
+    else
+        return cong(inra(b), nhan1(inra(a), 1));
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n;
+    cin >> n;
+    int t;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> t;
+        cout << kt(t) << "\n";
+    }
+}
+//6 0 1 2 3 4 5

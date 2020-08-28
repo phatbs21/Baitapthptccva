@@ -41,7 +41,7 @@ int main()
             if (bc(a[j] / 2, a[j + 1] / 2, i) == true)
             {
                 x++;
-                //cout << i << " ";
+         
             }
         }
         if (x == n - 1)
