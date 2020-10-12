@@ -1,15 +1,14 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    //freopen("caitui.inp", "r", stdin);
     long long int n, w;
     long long int i, j;
 
-    //stack<int> kq;
+    stack<int> kq;
     cin >> n >> w;
     long long int m[n + 10], v[n + 10];
     long long int f[n + 10][w + 10];
@@ -40,8 +39,8 @@ int main()
         }
     }
     cout << f[n][w] << endl;
-    /*
-    int j = w;
+
+    j = w;
     for (int i = n; i > 0; i--)
     {
         if (f[i][j] != f[i - 1][j])
@@ -55,5 +54,5 @@ int main()
         cout << kq.top() << " ";
         kq.pop();
     }
-    return 0;*/
+    return 0;
 }

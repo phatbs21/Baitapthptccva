@@ -1,113 +1,48 @@
 #include <bits/stdc++.h>
+#define p (int)1e9
 using namespace std;
-#define bignum string
-bignum cong(bignum s1, bignum s2)
+ifstream fi("fibsum.inp");
+ofstream fo("fibsum.out");
+vector<int64_t> x(4), y(4), z(4);
+vector<int64_t> mult(vector<int64_t> a, vector<int64_t> b)
 {
-    while (s1.length() < s2.length())
-        s1 = "0" + s1;
-    while (s2.length() < s1.length())
-        s2 = "0" + s2;
-    bignum k = "";
-    int c, nho = 0;
-    for (int i = s1.length() - 1; i >= 0; i--)
-    {
-        c = (s1[i] - 48) + (s2[i] - 48) + nho;
-        nho = c / 10;
-        c = c % 10;
-        k = char(c + 48) + k;
-    }
-    if (nho > 0)
-        k = "1" + k;
-    return k;
+    vector<int64_t> t(4);
+    t[0] = (a[0] * b[0] + a[1] * b[2]) % p;
+    t[1] = (a[0] * b[1] + a[1] * b[3]) % p;
+    t[2] = (a[2] * b[0] + a[3] * b[2]) % p;
+    t[3] = (a[2] * b[1] + a[3] * b[3]) % p;
+    return t;
 }
-int sosanh(bignum s1, bignum s2)
+int get_fib(int k)
 {
-    if (s1.length() > s2.length())
-        return 1;
-    if (s2.length() > s1.length())
-        return -1;
-    if (s1 == s2)
-        return 0;
-    if (s1 > s2)
-        return 1;
-    return -1;
-}
-bignum nhan1(bignum s, int a)
-{
-    string k;
-    int nho = 0, c;
-    for (int i = s.length() - 1; i >= 0; i--)
+    z[0] = z[3] = 1;
+    z[1] = z[2] = 0;
+    x[0] = x[1] = x[2] = 1;
+    x[3] = 0;
+    while (k > 0)
     {
-        c = a * (s[i] - 48) + nho;
-        nho = c / 10;
-        c = c % 10;
-        k = char(c + 48) + k;
+        if (k & 1)
+            z = mult(x, z);
+        x = mult(x, x);
+        k >>= 1;
     }
-    while (nho > 0)
-    {
-        k = char(nho % 10 + 48) + k;
-        nho /= 10;
-    }
-    return k;
+    return z[0];
 }
-bignum nhan(bignum s1, bignum s2)
-{
-    bignum k, t, d;
-    for (int i = s2.length() - 1; i >= 0; i--)
-    {
-        t = nhan1(s1, s2[i] - 48) + d;
-        k = cong(k, t);
-        d = d + "0";
-    }
-    return k;
-}
-string inra(int n)
-{
-    bignum s = "1";
-    for (int i = 1; i <= n; i++)
-    {
-        s = nhan1(s, 2);
-    }
-    return s;
-}
-string kt(int n)
-{
-    int c = 0;
-    int a = 0, dem = 0, b = 0;
-    string s1, s2 = "";
-    while (n > 0)
-    {
-        dem++;
-        s1 = to_string(c);
-        if (n % 2 == 1)
-        {
-            if (dem % 2)
-                a += stoi(s1);
-            else
-                b += stoi(s1);
-        }
-        n = n / 2;
-        c++;
-    }
-    cout<<"*"<<a<<""<<b<<"*";
-    if (a > b)
-        return cong(inra(a), nhan1(inra(b), 1));
-    else
-        return cong(inra(b), nhan1(inra(a), 1));
-}
-
 int main()
 {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    int n;
-    cin >> n;
-    int t;
-    for (int i = 1; i <= n; i++)
+    int a, b;
+    int64_t ans;
+    while (!fi.eof())
     {
-        cin >> t;
-        cout << kt(t) << "\n";
+        a = -1;
+        fi >> a >> b;
+        if (a == -1)
+            break;
+        if (a == b)
+            ans = (a = 0) ? 1 : get_fib(a);
+        else
+            ans = (get_fib(b + 2) + p - get_fib(a + 1)) % p;
+        fo << ans << '\n';
     }
+    return 0;
 }
-//6 0 1 2 3 4 5

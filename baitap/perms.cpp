@@ -10,13 +10,13 @@ int main()
         day[i] = i;
         dem = dem * i;
     }
-    cout << dem << endl;
+    cout << dem << "\n";
     do
     {
         for (int i = 1; i <= n; ++i)
         {
             cout << day[i];
         }
-        cout << endl;
+        cout << "\n";
     } while (next_permutation(day + 1, day + n + 1));
 }
