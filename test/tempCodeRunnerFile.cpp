@@ -1,17 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define bignum string
+void print_solution(__int128 n)
+{
+    string S;
+    while (n != 0)
+    {
+        int digit = n % 10;
+        n /= 10;
+        S += to_string(digit);
+    }
+    reverse(S.begin(), S.end());
+    cout << S << endl;
+}
+
 int main()
 {
-    int n, dem = 0;
-    cin >> n;
-    int a[n], b[n];
-    memset(b, 0, sizeof(b));
-    for (int i = 0; i < n; i++)
+    int a, b, N;
+    __int128 A, B;
+    cin >> a >> b;
+    A = a;
+    B = b;
+    __int128 tong = 0;
+
+    for (int i = 2; i <= b; i++)
     {
-        cin >> a[i];
-        if ((b[a[i]] == 0))
-            dem++;
-        b[a[i]] = 1;
+        A *= a;
     }
-    cout << dem;
+    for (int i = 2; i <= a; i++)
+    {
+        B *= b;
+    }
+    if (A >= B)
+        print_solution(A - B);
+    else
+    {
+        cout << "-";
+        print_solution(B - A);
+    }
+    return 0;
 }

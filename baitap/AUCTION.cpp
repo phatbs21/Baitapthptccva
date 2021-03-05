@@ -17,25 +17,25 @@ void sangnguyento(long long int n)
     }
 }
 
-long long int oneDigit(long long int num)
+long long int motSo(long long int num)
 {
     return (num >= 0 && num < 10);
 }
-bool isPalUtil(long long int num, long long int *dupNum)
+bool check(long long int num, long long int *dupNum)
 {
-    if (oneDigit(num))
+    if (motSo(num))
         return (num == (*dupNum) % 10);
-    if (!isPalUtil(num / 10, dupNum))
+    if (!check(num / 10, dupNum))
         return false;
     *dupNum /= 10;
     return (num % 10 == (*dupNum) % 10);
 }
-long long int isPal(long long int num)
+long long int doixung(long long int num)
 {
     if (num < 0)
         num = -num;
     long long int *dupNum = new long long int(num);
-    return isPalUtil(num, dupNum);
+    return check(num, dupNum);
 }
 
 int main()
@@ -55,7 +55,7 @@ int main()
             break;
         if (ngto[i])
         {
-            if (isPal(i))
+            if (doixung(i))
             {
                 dem++;
             }

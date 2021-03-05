@@ -68,7 +68,7 @@ void duyet(const int i)
 }
 int main()
 {
-    freopen("chenxauso.out", "w", stdout);
+    //freopen("chenxauso.out", "w", stdout);
     freopen("chenxauso.out", "w", stdout);
     cin >> m;
     cin >> s;
