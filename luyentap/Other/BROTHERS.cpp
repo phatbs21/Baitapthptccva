@@ -3,27 +3,27 @@ using namespace std;
 #define ll long long
 const int dbrr = 202, MOD = 1e9 + 7;
 int n, m, a[dbrr][dbrr], dp[2 * dbrr][dbrr][dbrr];
-int kt(int diag, int p1, int p2)
+int kt(int k, int p1, int p2)
 {
     int kq = -1e9;
-    if (p1 == 1 && p2 == 1 && diag == 2)
+    if (p1 == 1 && p2 == 1 && k == 2)
         return a[1][1];
-    if (dp[diag][p1][p2] != -1e9)
-        return dp[diag][p1][p2];
-    if (diag - p1 > 1 && diag - p2 > 1)
-        kq = max(kq, kt(diag - 1, p1, p2));
-    if (diag - p1 > 1 && p2 > 1)
-        kq = max(kq, kt(diag - 1, p1, p2 - 1));
-    if (p1 > 1 && diag - p2 > 1)
-        kq = max(kq, kt(diag - 1, p1 - 1, p2));
+    if (dp[k][p1][p2] != -1e9)
+        return dp[k][p1][p2];
+    if (k - p1 > 1 && k - p2 > 1)
+        kq = max(kq, kt(k - 1, p1, p2));
+    if (k - p1 > 1 && p2 > 1)
+        kq = max(kq, kt(k - 1, p1, p2 - 1));
+    if (p1 > 1 && k - p2 > 1)
+        kq = max(kq, kt(k - 1, p1 - 1, p2));
     if (p1 > 1 && p2 > 1)
-        kq = max(kq, kt(diag - 1, p1 - 1, p2 - 1));
+        kq = max(kq, kt(k - 1, p1 - 1, p2 - 1));
     if (p1 == p2)
-        kq += a[p1][diag - p1];
+        kq += a[p1][k - p1];
     else
-        kq += a[p1][diag - p1] + a[p2][diag - p2];
+        kq += a[p1][k - p1] + a[p2][k - p2];
 
-    return dp[diag][p1][p2] = kq;
+    return dp[k][p1][p2] = kq;
 }
 
 int main()

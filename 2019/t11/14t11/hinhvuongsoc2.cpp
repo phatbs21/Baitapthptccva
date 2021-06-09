@@ -2,7 +2,7 @@
 using namespace std;
 int n, h, k, i, j;
 int d[1000][1001];
-int di[4] = {0, 1, 0, -1};
+int loang1[4] = {0, 1, 0, -1};
 int dj[4] = {1, 0, -1, 0};
 int main()
 {
@@ -25,11 +25,11 @@ int main()
 	{
 		d[i][j] = k;
 		k++;
-		if (d[i + di[h]][j + dj[h]] > 0)
+		if (d[i + loang1[h]][j + dj[h]] > 0)
 		{
 			h = (h + 1) % 4;
 		}
-		i = i + di[h];
+		i = i + loang1[h];
 		j = j + dj[h];
 	}
 	for (i = 1; i <= n; i++)

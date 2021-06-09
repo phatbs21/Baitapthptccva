@@ -23,5 +23,5 @@ int main()
         b[u].push_back(pii(v, w));
         b[u].push_back(pii(u, w));
     }
-    q.push(pii(0, s));
+    //q.push(pii(0, s));
 }

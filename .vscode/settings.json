@@ -3,6 +3,7 @@
     "**/*.exe": true
   },
   "C_Cpp.default.cppStandard": "c++20",
+  "code-runner.ignoreSelection": true,
   "C_Cpp.default.cStandard": "c18",
   "C_Cpp.default.intelliSenseMode": "gcc-x64",
   "code-runner.clearPreviousOutput": true,

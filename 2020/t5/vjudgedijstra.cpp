@@ -13,6 +13,7 @@ vector<ll> path;
 void dijkstra(ll s)
 {
     path.assign(N, -1);
+    d.assign(N, INT_MAX);
     priority_queue<pair<ll, ll>> q;
     q.push({0, s});
     d[s] = 0;

@@ -1,47 +1,26 @@
-#include <bits/stdc++.h>
-using namespace std;
-long long int p = 0, digit = 1;
-void whichDigit(long long int *tmp, long long int *pos)
+#include<stdio.h>
+int  main()
 {
-    *tmp /= pow(10, floor(log10(*tmp)) + 1 - *pos);
-    cout << *tmp % 10;
-}
-void whichNum()
-{
-    if (p == 0)
-        cout << 9;
-    else
-    {
-        long long int num = p, pos = 1;
-        if (digit != 1)
+    int num,r,c,sp;
+    scanf("%d",&num);
+    for(r=1; r<=num; r++)
         {
-            --p;
-            num = pow(10, digit - 1) + (p / digit);
-            pos = p % digit + 1;
+            for(sp=num-r; sp>=1; sp--)
+                printf(" ");
+            for(c=1; c<=r; c++)
+                printf("%d",c);
+            for(c=r-1; c>=1; c--)
+                printf("%d",c);
+            printf("\n");
         }
-        whichDigit(&num, &pos);
-    }
-}
-void trimNum()
-{
-    while (1)
-    {
-        long long int tmp = 9 * digit * pow(10, digit - 1);
-        if (p - tmp < 0)
+    for(r=1; r<=num; r++)
         {
-            break;
+            for(sp=r; sp>=1; sp--)
+                printf(" ");
+            for(c=1; c<=(num-r); c++)
+                printf("%d",c);
+            for(c=num-r-1; c>=1; c--)
+                printf("%d",c);
+            printf("\n");
         }
-        p -= tmp;
-        ++digit;
-    }
-    whichNum();
-}
-int main(void)
-{
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    cin >> p;
-    trimNum();
-    return 0;
 }
